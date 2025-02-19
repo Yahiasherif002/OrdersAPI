@@ -1,3 +1,5 @@
+using System;
+using or
 
 namespace OrdersAPI
 {
@@ -10,6 +12,7 @@ namespace OrdersAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddDbContext<AppDbContext>
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
