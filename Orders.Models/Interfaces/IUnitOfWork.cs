@@ -9,11 +9,14 @@ namespace Orders.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
-        IRepository<Order> Orders { get; }
-        IRepository<Customer> Customers { get; }
+        IOrderRepository Orders { get; }
+        ICustomerRepository Customers { get; }
 
         IRepository<OrderDetail> OrderDetails { get; }
         Task<int> SaveAsync();
+        Task BeginTransactionAsync();
+        Task CommitTransactionAsync();
+        Task RollbackTransactionAsync();
 
     }
 }

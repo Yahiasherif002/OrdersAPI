@@ -17,6 +17,17 @@ namespace Orders.Infrastructure
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Order>()
+                .Property(o => o.TotalAmount)
+                .HasPrecision(18, 2);  // Precision: 18 digits, Scale: 2 decimal places
 
+            modelBuilder.Entity<OrderDetail>()
+                .Property(od => od.UnitPrice)
+                .HasPrecision(18, 2);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Orders.DataAccess\Orders.Infrastructure.csproj" />
     <ProjectReference Include="..\Orders.Models\Orders.Domain.csproj" />
-    <ProjectReference Include="..\OrdersAPI\OrdersAPI.csproj" />
   </ItemGroup>
 
 </Project>
