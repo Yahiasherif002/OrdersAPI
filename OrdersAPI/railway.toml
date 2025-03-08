@@ -1,0 +1,7 @@
+﻿[build]
+builder= "dockerFile"
+dockerFilePath= "E:\Downloads\TRACK\DotNet\DEMOS\OrdersAPISolution\OrdersAPI\Dockerfile"
+[deploy]
+startCommand= "dotnet OrdersAPI.dll"
+restartPolicy= "always"
+healthCheckPath= "/health"

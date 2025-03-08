@@ -22,6 +22,8 @@ namespace OrdersAPI
             });
             builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
             builder.Services.AddScoped<IOrderService, OrderService>();
+            var port= Environment.GetEnvironmentVariable("PORT")?? "8080";
+            builder.Services.AddHealthChecks();
 
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
@@ -42,10 +44,12 @@ namespace OrdersAPI
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
             builder.Services.AddEndpointsApiExplorer();
+
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
             app.UseCors("AllowAll");
+            app.UseHealthChecks("/health"); 
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

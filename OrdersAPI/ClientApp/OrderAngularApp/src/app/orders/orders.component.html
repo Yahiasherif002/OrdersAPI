@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2 class="text-center">Customers List</h2>
+
+  <table class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.address }}</td>
+        <td>{{ customer.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="customers.length === 0" class="alert alert-warning text-center mt-3">
+    No customers available.
+  </div>
+</div>
