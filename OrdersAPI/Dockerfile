@@ -11,7 +11,7 @@ COPY ["Orders.Application/Orders.Application.csproj", "Orders.Application/"]
 COPY ["Orders.DataAccess/Orders.Infrastructure.csproj", "Orders.DataAccess/"]
 COPY ["Orders.Models/Orders.Domain.csproj", "Orders.Models/"]
 
-# Run dotnet restore with verbose output
+# Run dotnet restore with verbose output to gather more details
 RUN dotnet restore "./OrdersAPI/OrdersAPI.csproj" --verbosity detailed
 
 # Now copy all the source files
